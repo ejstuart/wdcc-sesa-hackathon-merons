@@ -8,7 +8,7 @@ const EmailViewer = () => (
   </div>
 );
 
-EmailViewer.propTypes = {};
+EmailViewer.propTypes = {emailTitle: PropTypes.string, emailBody: PropTypes.string, senderName: PropTypes.string, senderEmail: PropTypes.string};
 
 EmailViewer.defaultProps = {};
 
