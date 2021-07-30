@@ -11,7 +11,7 @@ import MailIcon from "@material-ui/icons/Mail";
 const EmailTabContainer = (props) => (
   <div className={styles.EmailTabContainer}>
       <p>Inbox</p>
-      <EmailTab EmailTab={props.emailTabInfoArray[0]} className={styles.EmailTab}/>
+      <EmailTab email={props.emailTabInfoArray[0]} className={styles.EmailTab}/>
       <EmailTab EmailTab={props.emailTabInfoArray[1]} className={styles.EmailTab}/>
       <EmailTab EmailTab={props.emailTabInfoArray[2]} className={styles.EmailTab}/>
       <EmailTab EmailTab={props.emailTabInfoArray[3]} className={styles.EmailTab}/>
