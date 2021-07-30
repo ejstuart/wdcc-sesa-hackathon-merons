@@ -1,1 +1,4 @@
-.EmailTabContainer {}
+.EmailTabContainer {
+    display: flex;
+    flex-direction: column;
+}
