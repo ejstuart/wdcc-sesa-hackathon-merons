@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './EmailTabContainer.module.css';
+import EmailTab from "../EmailTab/EmailTab";
 import {List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
@@ -22,7 +23,7 @@ const EmailTabContainer = () => (
   </div>
 );
 
-EmailTabContainer.propTypes = {};
+EmailTabContainer.propTypes = {emailTabList: PropTypes.array};
 
 EmailTabContainer.defaultProps = {};
 
