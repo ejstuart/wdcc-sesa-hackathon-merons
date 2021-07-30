@@ -358,19 +358,20 @@ function App() {
   }
 
   const getSingleRandomEmail = () => {
-    let randomEmailNum = Math.random()*NUM_RANDOM_EMAILS;
-    let randomNameNum = Math.random()*RANDOM_EMAIL_TITLES.length;
-    let randomAddressNum = Math.random()*RANDOM_SENDER_EMAILS.length;
+    let randomEmailNum = Math.floor(Math.random()*(NUM_RANDOM_EMAILS-1));
+    let randomNameNum = Math.floor(Math.random()*(RANDOM_EMAIL_TITLES.length-1));
+    let randomAddressNum = Math.floor(Math.random()*(RANDOM_SENDER_EMAILS.length-1));
     return {
       emailTitle: RANDOM_EMAIL_TITLES[randomEmailNum],
       emailBody: RANDOM_EMAIL_BODIES[randomEmailNum],
       senderName: RANDOM_SENDER_NAMES[randomNameNum],
-      senderPictureURL: RANDOM_SENDER_IMAGE_URLS[randomNameNum],
+      senderImageURL: RANDOM_SENDER_IMAGE_URLS[randomNameNum],
       senderEmail: RANDOM_SENDER_EMAILS[randomAddressNum]
     }
   }
 
-  const [emails, setEmails] = useState(returnRandomEmails())
+
+  const [emails, setEmails] = useState(returnRandomEmails(10))
 
   const [viewEmail, setViewEmail] = useState(emails[0])
 
