@@ -1,7 +1,10 @@
 .ScoreSidebar {
-    padding: 20px;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 20px;
+
 }
 
-ListItem{
-    padding-bottom: 10px;
+.menuItem:nth-child(n+2) {
+    margin-top: 1vw;
 }

@@ -8,7 +8,7 @@ import MailIcon from '@material-ui/icons/Mail';
 const menuList = () => (
     <List>
         {['Sent', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text} className={}>
+            <ListItem button key={text} className={styles.menuItem}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                 <ListItemText primary={text} />
             </ListItem>
