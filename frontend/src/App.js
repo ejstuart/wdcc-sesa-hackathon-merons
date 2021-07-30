@@ -481,9 +481,7 @@ function App() {
     <div className="App">
         <ScoreSidebar sentEmails={sentEmails} accounts={accountData} folders={folderData}/>
       <div className={"BodyBox"}>
-        <EmailTabContainer emailTabList={emails} >
-          <EmailTab/>
-        </EmailTabContainer>
+        <EmailTabContainer emailTabInfoArray={emails} />
         <div className={"RightBox"}>
           <EmailViewer email={viewEmail} replyFunction={reply} className={"RightBoxItem"}/>
           <SettingsTab buyFolderFunction={buyFolder} buyAccountFunction={buyAccount} className={"RightBoxItem"}/>

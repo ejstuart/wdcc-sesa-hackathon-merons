@@ -4,3 +4,17 @@
     flex-direction: column;
     flex-grow: 1;
 }
+
+.EmailTab {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.EmailTabTitle {
+
+}
+
+.EmailTabBody {
+
+}

@@ -6,27 +6,30 @@ import {List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 
-const emailList = () => (
-    <List>
-        {['Sent', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-            </ListItem>
-        ))}
-    </List>
-);
 
-const EmailTabContainer = () => (
+
+const EmailTabContainer = (props) => (
   <div className={styles.EmailTabContainer}>
-      EmailTabContainer Component
+      <p>Inbox</p>
+      <EmailTab EmailTab={props.emailTabInfoArray[0]} className={styles.EmailTab}/>
+      <EmailTab EmailTab={props.emailTabInfoArray[1]} className={styles.EmailTab}/>
+      <EmailTab EmailTab={props.emailTabInfoArray[2]} className={styles.EmailTab}/>
+      <EmailTab EmailTab={props.emailTabInfoArray[3]} className={styles.EmailTab}/>
+      <EmailTab EmailTab={props.emailTabInfoArray[4]} className={styles.EmailTab}/>
+      <EmailTab EmailTab={props.emailTabInfoArray[5]} className={styles.EmailTab}/>
+      <EmailTab EmailTab={props.emailTabInfoArray[6]} className={styles.EmailTab}/>
+      <EmailTab EmailTab={props.emailTabInfoArray[7]} className={styles.EmailTab}/>
+      <EmailTab EmailTab={props.emailTabInfoArray[8]} className={styles.EmailTab}/>
+      <EmailTab EmailTab={props.emailTabInfoArray[9]} className={styles.EmailTab}/>
+
   </div>
 );
 
-EmailTabContainer.propTypes = {emailTabArray: PropTypes.arrayOf(PropTypes.shape({
+EmailTabContainer.propTypes = {emailTabInfoArray: PropTypes.arrayOf(PropTypes.shape({
         emailTitle: PropTypes.string,
         emailBody: PropTypes.string,
         senderName: PropTypes.string,
+        senderImageURL: PropTypes.string,
         senderEmail: PropTypes.string
     }))
 };
