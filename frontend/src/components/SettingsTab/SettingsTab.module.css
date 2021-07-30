@@ -5,14 +5,11 @@
 
 .FlexContainer {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     width: 50%;
-    padding-top: 5%;
-    padding-left: 8%;
+    padding-left: 5%;
 }
 
 .FlexItem {
-
     width: 40%
 }

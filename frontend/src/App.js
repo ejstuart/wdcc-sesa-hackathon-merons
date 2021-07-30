@@ -485,8 +485,8 @@ function App() {
           <EmailTab/>
         </EmailTabContainer>
         <div className={"RightBox"}>
-          <EmailViewer email={viewEmail} replyFunction={reply}/>
-          <SettingsTab buyFolderFunction={buyFolder} buyAccountFunction={buyAccount}/>
+          <EmailViewer email={viewEmail} replyFunction={reply} className={"RightBoxItem"}/>
+          <SettingsTab buyFolderFunction={buyFolder} buyAccountFunction={buyAccount} className={"RightBoxItem"}/>
         </div>
       </div>
     </div>
