@@ -299,6 +299,28 @@ function App() {
     "Marta Chae-Young Eklund",
     "Aminda Lilac Horák",
   ];
+  const RANDOM_SENDER_IMAGE_URLS = [
+      "images/face1",
+      "images/face2",
+      "images/face3",
+      "images/face4",
+      "images/face5",
+      "images/face6",
+      "images/face7",
+      "images/face8",
+      "images/face9",
+      "images/face10",
+      "images/face11",
+      "images/face12",
+      "images/face13",
+      "images/face14",
+      "images/face15",
+      "images/face16",
+      "images/face17",
+      "images/face18",
+      "images/face19",
+      "images/face20"
+      ];
   const RANDOM_SENDER_EMAILS = [
     "8alivarane112u@gmail.com",
     "3tediz@klttec.com",
@@ -323,8 +345,8 @@ function App() {
     "ernesto.roth@deer.com",
   ];
 
-  const FOLDER_COST = 100
-  const ACCOUNT_COST = 500
+  const FOLDER_COST = 10
+  const ACCOUNT_COST = 50
 
 
 
@@ -393,6 +415,8 @@ function App() {
 
   let incrementFolderScore = (folderNum) => {
     folderData[folderNum].score++;
+    incrementScore();
+    console.log("folder increment")
   }
 
   let buyFolder = (folderNum) => {
@@ -428,6 +452,7 @@ function App() {
       emailTitle: RANDOM_EMAIL_TITLES[randomEmailNum],
       emailBody: RANDOM_EMAIL_BODIES[randomEmailNum],
       senderName: RANDOM_SENDER_NAMES[randomNameNum],
+      senderPictureURL: RANDOM_SENDER_IMAGE_URLS[randomNameNum],
       senderEmail: RANDOM_SENDER_EMAILS[randomAddressNum]
     })
   };
@@ -460,8 +485,8 @@ function App() {
           <EmailTab/>
         </EmailTabContainer>
         <div className={"RightBox"}>
-          <EmailViewer email={viewEmail} replyFunction={incrementScore}/>
-          <SettingsTab/>
+          <EmailViewer email={viewEmail} replyFunction={reply}/>
+          <SettingsTab buyFolderFunction={buyFolder} buyAccountFunction={buyAccount}/>
         </div>
       </div>
     </div>
