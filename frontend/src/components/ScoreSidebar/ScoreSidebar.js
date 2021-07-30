@@ -17,10 +17,11 @@ const menuList = () => (
     </List>
 );
 
-const ScoreSidebar = () => (
+const ScoreSidebar = (props) => (
     <Box anchor={"left"} open={true} variant={"permanent"}>
         <div className={styles.ScoreSidebar}>
           {menuList()}
+            {props.sentEmails}
         </div>
     </Box>
 );

@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './EmailViewer.module.css';
+import {Button} from "@material-ui/core";
 
-const EmailViewer = () => (
+const EmailViewer = (props) => (
   <div className={styles.EmailViewer}>
     EmailViewer Component
+      <Button variant="contained" onClick={props.replyFunction}>Reply</Button>
   </div>
 );
 

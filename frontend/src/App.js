@@ -385,6 +385,7 @@ function App() {
 
   let incrementScore = () => {
     sentEmails++;
+    console.log("This Happened")
   }
 
   let incrementFolderScore = (folderNum) => {
@@ -456,7 +457,7 @@ function App() {
           <EmailTab/>
         </EmailTabContainer>
         <div className={"RightBox"}>
-          <EmailViewer/>
+          <EmailViewer email={viewEmail} replyFunction={incrementScore}/>
           <SettingsTab/>
         </div>
       </div>
