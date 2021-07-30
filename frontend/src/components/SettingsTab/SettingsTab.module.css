@@ -2,3 +2,17 @@
     background-color: darkkhaki;
     flex-grow: 1;
 }
+
+.FlexContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 50%;
+    padding-top: 5%;
+    padding-left: 8%;
+}
+
+.FlexItem {
+
+    width: 40%
+}

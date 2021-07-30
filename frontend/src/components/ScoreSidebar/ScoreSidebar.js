@@ -21,7 +21,10 @@ const ScoreSidebar = (props) => (
     <Box anchor={"left"} open={true} variant={"permanent"}>
         <div className={styles.ScoreSidebar}>
           {menuList()}
-            {props.sentEmails}
+            <p>{props.sentEmails}</p>
+            <p>{props.accounts[0].score}</p>
+            <p>{props.folders[0].score}</p>
+
         </div>
     </Box>
 );
