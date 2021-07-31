@@ -350,8 +350,13 @@ function App() {
       "uni",
       "spam",
       "school",
+  ];
 
-  ]
+  const ACCOUNT_NAMES = [
+      "School Account",
+      "Work Account",
+      "Spam Account"
+  ];
 
   const NUM_FOLDERS = 5;
   const FOLDER_COST = 10;
@@ -381,32 +386,11 @@ function App() {
   }
 
 
-  const [emails, setEmails] = useState(returnRandomEmails(10))
-  const [viewEmail, setViewEmail] = useState(emails[0])
+  const [emails, setEmails] = useState(returnRandomEmails(10));
+  const [viewEmail, setViewEmail] = useState(emails[0]);
 
-  const [folderList, editFolderList] = useState([])
-  // Account Data
-
-  let workAccountData = {
-    name: "Work Email",
-    bought: false
-  };
-
-  let schoolAccountData = {
-    name: "School Account",
-    bought: false
-  };
-
-  let spamAccountData = {
-    name: "Spam Account",
-    bought: false
-  };
-
-  let accountData = [
-    workAccountData,
-    schoolAccountData,
-    spamAccountData
-  ];
+  const [folderList, editFolderList] = useState([]);
+  const [accountList, editAccountList] = useState([]);
 
   let reply = () => {
     console.log("Sent Reply")
@@ -433,22 +417,14 @@ function App() {
   }
 
   let buyAccount = () => {
-    if (sentEmails >= ACCOUNT_COST) {
-      let numBoughtAccounts = 0;
-      for (let account of accountData) {
-        if (!account.bought) {
-          console.log("Bought Account: " + account.name);
-          account.bought = true;
-          break;
-        } else {
-          numBoughtAccounts++;
-        }
+    if (sentEmails >= ACCOUNT_COST && accountList.length < ACCOUNT_NAMES.length) {
+      let newAccountName = ACCOUNT_NAMES[accountList.length];
+      let newAccountList = [...accountList];
+      newAccountList.push(newAccountName);
+      editAccountList(newAccountList)
       }
       // check if already bought every account
-      if (numBoughtAccounts !== NUM_ACCOUNTS) {
-        changeScore(-ACCOUNT_COST);
-      }
-    }
+      changeScore(-ACCOUNT_COST);
   }
 
   let loadFirstEmailToViewer = () => {
@@ -469,7 +445,7 @@ function App() {
 
   return (
   <div className="App">
-    <ScoreSidebar sentEmails={sentEmails} accounts={accountData} folderList={folderList}/>
+    <ScoreSidebar sentEmails={sentEmails} accounts={accountList} folderList={folderList}/>
     <div className={"BodyBox"}>
       <EmailTabContainer emailTabInfoArray={emails} />
       <div className={"RightBox"}>
