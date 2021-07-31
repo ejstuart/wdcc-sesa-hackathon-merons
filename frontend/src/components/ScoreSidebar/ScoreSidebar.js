@@ -7,8 +7,8 @@ import MailIcon from '@material-ui/icons/Mail';
 
 const menuList = () => (
     <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
+        {['Sent', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+            <ListItem button key={text} className={}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                 <ListItemText primary={text} />
             </ListItem>
@@ -17,11 +17,11 @@ const menuList = () => (
 );
 
 const ScoreSidebar = () => (
-  <div className={styles.ScoreSidebar}>
-      <Drawer anchor={"left"} open={true} variant={"permanent"}>
+    <Drawer anchor={"left"} open={true} variant={"permanent"}>
+        <div className={styles.ScoreSidebar}>
           {menuList()}
-      </Drawer>
-  </div>
+        </div>
+    </Drawer>
 );
 
 ScoreSidebar.propTypes = {};

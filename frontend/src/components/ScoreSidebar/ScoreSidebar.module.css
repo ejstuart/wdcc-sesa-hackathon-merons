@@ -1,1 +1,7 @@
-.ScoreSidebar {}
+.ScoreSidebar {
+    padding: 20px;
+}
+
+ListItem{
+    padding-bottom: 10px;
+}
