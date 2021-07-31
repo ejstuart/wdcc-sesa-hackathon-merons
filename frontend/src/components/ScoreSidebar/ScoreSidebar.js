@@ -17,7 +17,7 @@ const ScoreSidebar = (props) => (
             <img src={"./images/clickmaillogo.png"} style={{"max-height": "100px"}}/>
             <ListItem button key={'Sent'} className={styles.menuItem}>
                 <ListItemIcon><InboxIcon /></ListItemIcon>
-                <ListItemText primary={'Sent '}  />
+                <ListItemText primary={'Sent '}  style={{"padding-right":"30px"}}/>
                 <ListItemText primary={props.sentEmails}/>
             </ListItem>
 
