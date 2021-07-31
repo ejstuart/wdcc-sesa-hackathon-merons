@@ -5,6 +5,7 @@ import EmailTab from "./components/EmailTab/EmailTab";
 import EmailTabContainer from "./components/EmailTabContainer/EmailTabContainer";
 
 function App() {
+  const NUM_RANDOM_EMAILS = 1
   const RANDOM_EMAIL_NAMES = ["TODO..."]
   const RANDOM_EMAIL_BODIES = ["TODO..."]
   const RANDOM_EMAIL_TITLES = ["TODO..."]
@@ -13,6 +14,10 @@ function App() {
   const ACCOUNT_COST = 500
 
   let sentEmails = 0;
+
+  let emails = [];
+  let viewEmail = emails[0];
+
   let folderData = [
     {
       name: "spam",
@@ -33,8 +38,6 @@ function App() {
         bought: false
       }
     ]
-
-  let emails = [];
 
   let incrementScore = () => {
     sentEmails++;
@@ -62,12 +65,19 @@ function App() {
     }
   }
 
+  let loadFirstEmailToViewer = () => {
+    let viewEmail = emails[0];
+  }
+
   let addNewRandomEmail = () => {
+    // Does this work?
+    let randomNum = Math.random()*NUM_RANDOM_EMAILS;
+
     emails.shift();
     emails.push({
-      emailName: "Remus",
-      emailBody: "TODO",
-      senderName: "TODO"
+      emailName: RANDOM_EMAIL_TITLES[randomNum],
+      emailBody: RANDOM_EMAIL_BODIES[randomNum],
+      senderName: RANDOM_EMAIL_NAMES[randomNum]
     })
   };
 

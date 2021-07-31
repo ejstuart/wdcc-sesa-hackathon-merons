@@ -11,6 +11,6 @@ const EmailTabContainer = () => (
 
 EmailTabContainer.propTypes = {emailTabList: PropTypes.array};
 
-EmailTabContainer.defaultProps = {[]:PropTypes.array};
+EmailTabContainer.defaultProps = {};
 
 export default EmailTabContainer;
