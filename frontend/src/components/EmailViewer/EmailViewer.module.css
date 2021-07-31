@@ -30,8 +30,39 @@
 .email_text{
     text-align: left;
     white-space: pre-line;
+    margin:0px;
+    padding-bottom: 4px;
+}
+
+.email_sender_text{
+    text-align: left;
+    white-space: pre-line;
+    margin:0px;
+    font-style: italic;
+}
+
+.email_body_text{
+    text-align: left;
+    white-space: pre-line;
+    overflow-y: scroll;
+    height: 200px;
 }
 
 .email_body{
     padding-right: 4vw;
+}
+
+.my_btn{
+    cursor:pointer;
+    border-radius: 8px;
+    color: #ffffff;
+    background: #e64545;
+    padding: 10px 20px 10px 20px;
+    border: solid #ffffff 2px;
+    text-decoration: none;
+}
+
+.my_btn:hover{
+    background: #d47474;
+    text-decoration: none;
 }
