@@ -300,27 +300,27 @@ function App() {
     "Aminda Lilac Horák",
   ];
   const RANDOM_SENDER_IMAGE_URLS = [
-      "images/face1",
-      "images/face2",
-      "images/face3",
-      "images/face4",
-      "images/face5",
-      "images/face6",
-      "images/face7",
-      "images/face8",
-      "images/face9",
-      "images/face10",
-      "images/face11",
-      "images/face12",
-      "images/face13",
-      "images/face14",
-      "images/face15",
-      "images/face16",
-      "images/face17",
-      "images/face18",
-      "images/face19",
-      "images/face20"
-      ];
+    "images/face1",
+    "images/face2",
+    "images/face3",
+    "images/face4",
+    "images/face5",
+    "images/face6",
+    "images/face7",
+    "images/face8",
+    "images/face9",
+    "images/face10",
+    "images/face11",
+    "images/face12",
+    "images/face13",
+    "images/face14",
+    "images/face15",
+    "images/face16",
+    "images/face17",
+    "images/face18",
+    "images/face19",
+    "images/face20"
+  ];
   const RANDOM_SENDER_EMAILS = [
     "8alivarane112u@gmail.com",
     "3tediz@klttec.com",
@@ -408,11 +408,11 @@ function App() {
   })
 
   const folderData = [
-   spamFolderData,
-   uniFolderData,
-   workFolderData,
-   importantFolderData,
-   familyFolderData
+    spamFolderData,
+    uniFolderData,
+    workFolderData,
+    importantFolderData,
+    familyFolderData
   ]
 
   // Account Data
@@ -436,10 +436,10 @@ function App() {
   })
 
   let accountData = [
-      workAccountData,
-      schoolAccountData,
-      spamAccountData
-    ];
+    workAccountData,
+    schoolAccountData,
+    spamAccountData
+  ];
 
   let reply = () => {
     console.log("Sent Reply")
@@ -656,17 +656,18 @@ function App() {
 
 
   return (
-    <div className="App">
-        <ScoreSidebar sentEmails={sentEmails} accounts={accountData} folders={folderData}/>
-      <div className={"BodyBox"}>
-        <EmailTabContainer emailTabInfoArray={emails} />
-        <div className={"RightBox"}>
-          <EmailViewer email={viewEmail} replyFunction={reply} className={"RightBoxItem"}/>
-          <SettingsTab buyFolderFunction={buyFolder} buyAccountFunction={buyAccount} className={"RightBoxItem"}/>
-        </div>
+  <div className="App">
+    <ScoreSidebar sentEmails={sentEmails} accounts={accountData} folders={folderData}/>
+    <div className={"BodyBox"}>
+      <EmailTabContainer emailTabInfoArray={emails} />
+      <div className={"RightBox"}>
+        <EmailViewer email={viewEmail} replyFunction={reply} className={"RightBoxItem"}/>
+        <SettingsTab buyFolderFunction={buyFolder} buyAccountFunction={buyAccount} className={"RightBoxItem"}/>
       </div>
     </div>
-  );
+  </div>
+
+);
 }
 
 export default App;
