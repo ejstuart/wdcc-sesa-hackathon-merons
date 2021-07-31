@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ScoreSidebar.module.css';
-import {Drawer, List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
+import {Box, List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const menuList = () => (
     <List>
@@ -17,11 +18,11 @@ const menuList = () => (
 );
 
 const ScoreSidebar = () => (
-    <Drawer anchor={"left"} open={true} variant={"permanent"}>
+    <Box anchor={"left"} open={true} variant={"permanent"}>
         <div className={styles.ScoreSidebar}>
           {menuList()}
         </div>
-    </Drawer>
+    </Box>
 );
 
 ScoreSidebar.propTypes = {};
