@@ -424,14 +424,12 @@ function App() {
 
 
   let buyFolder = () => {
-    if (sentEmails >= FOLDER_COST) {
+    if (sentEmails >= FOLDER_COST && folderList.length < FOLDER_NAMES.length) {
       let newFolderName = FOLDER_NAMES[folderList.length];
-      editFolderList(folderList.push(newFolderName));
+      let newFolderList = Array.copy(folderList);
+      newFolderList.push(newFolderName);
+      editFolderList(newFolderList);
     }
-  }
-
-  let buySpecificFolder = (folderName) => {
-
   }
 
   let buyAccount = () => {
@@ -471,7 +469,7 @@ function App() {
 
   return (
   <div className="App">
-    <ScoreSidebar sentEmails={sentEmails} accounts={accountData} folders={folderData}/>
+    <ScoreSidebar sentEmails={sentEmails} accounts={accountData} folders={folderList}/>
     <div className={"BodyBox"}>
       <EmailTabContainer emailTabInfoArray={emails} />
       <div className={"RightBox"}>
