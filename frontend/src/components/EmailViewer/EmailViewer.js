@@ -15,6 +15,7 @@ EmailViewer.propTypes = {
         emailTitle: PropTypes.string,
         emailBody: PropTypes.string,
         senderName: PropTypes.string,
+        senderImageURL: PropTypes.string,
         senderEmail: PropTypes.string
     }),
     replyFunction:PropTypes.func

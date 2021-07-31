@@ -299,6 +299,28 @@ function App() {
     "Marta Chae-Young Eklund",
     "Aminda Lilac Horák",
   ];
+  const RANDOM_SENDER_IMAGE_URLS = [
+      "images/face1",
+      "images/face2",
+      "images/face3",
+      "images/face4",
+      "images/face5",
+      "images/face6",
+      "images/face7",
+      "images/face8",
+      "images/face9",
+      "images/face10",
+      "images/face11",
+      "images/face12",
+      "images/face13",
+      "images/face14",
+      "images/face15",
+      "images/face16",
+      "images/face17",
+      "images/face18",
+      "images/face19",
+      "images/face20"
+      ];
   const RANDOM_SENDER_EMAILS = [
     "8alivarane112u@gmail.com",
     "3tediz@klttec.com",
@@ -430,6 +452,7 @@ function App() {
       emailTitle: RANDOM_EMAIL_TITLES[randomEmailNum],
       emailBody: RANDOM_EMAIL_BODIES[randomEmailNum],
       senderName: RANDOM_SENDER_NAMES[randomNameNum],
+      senderPictureURL: RANDOM_SENDER_IMAGE_URLS[randomNameNum],
       senderEmail: RANDOM_SENDER_EMAILS[randomAddressNum]
     })
   };
