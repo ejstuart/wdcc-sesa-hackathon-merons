@@ -48,6 +48,11 @@
     height: 200px;
 }
 
+.text_field{
+    padding-top: 14px;
+    margin-top: 14px;
+}
+
 .email_body{
     padding-right: 4vw;
 }

@@ -23,7 +23,7 @@ const EmailViewer = (props) => (
                 </Typography >
             </div>
 
-            <TextField variant={"outlined"} fullWidth multiline rows={3} disabled>
+            <TextField className={styles.text_field} variant={"outlined"} fullWidth multiline rows={3} disabled>
             </TextField>
             <div>
                 <ButtonGroup variant="text" color="primary" style={{float: 'left'}}>
