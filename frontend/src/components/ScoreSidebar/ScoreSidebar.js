@@ -16,7 +16,7 @@ const ScoreSidebar = (props) => (
         <div className={styles.ScoreSidebar}>
             <ListItem button key={'Sent'} className={styles.menuItem}>
                 <ListItemIcon><InboxIcon /></ListItemIcon>
-                <ListItemText primary={'Sent'}  />
+                <ListItemText primary={'Sent '}  />
                 <ListItemText primary={props.sentEmails}/>
             </ListItem>
 
