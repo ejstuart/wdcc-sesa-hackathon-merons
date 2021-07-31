@@ -9,9 +9,7 @@ const FolderTab = (props) => {
     const [score, setScore] = useState(0);
     useEffect(() => {
         const interval = setInterval(() => {
-            if (props.bought) {
-                setScore(score + 1);
-            }
+            setScore(score + 1);
         }, 1000);
         return () => clearInterval(interval);
     }, []);
@@ -19,7 +17,7 @@ const FolderTab = (props) => {
     return (
         <div className={styles.FolderTab}>
             <ListItem button key={'Accounts'} className={styles.menuItem}>
-                <ListItemIcon><FolderIcon/></ListItemIcon> <ListItemText primary={props.name} />
+                <ListItemIcon><FolderIcon/></ListItemIcon> <ListItemText primary={props.name + '    ' + score} />
             </ListItem>
         </div>
     );
