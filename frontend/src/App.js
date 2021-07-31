@@ -348,6 +348,27 @@ function App() {
   const FOLDER_COST = 10
   const ACCOUNT_COST = 50
 
+  const returnRandomEmails = (numEmails) => {
+    let emailArray = new Array(numEmails);
+
+    for (let i = 0; i<numEmails; i++) {
+      emailArray[i] = getSingleRandomEmail();
+    }
+    return emailArray;
+  }
+
+  const getSingleRandomEmail = () => {
+    let randomEmailNum = Math.random()*NUM_RANDOM_EMAILS;
+    let randomNameNum = Math.random()*RANDOM_EMAIL_TITLES.length;
+    let randomAddressNum = Math.random()*RANDOM_SENDER_EMAILS.length;
+    return {
+      emailTitle: RANDOM_EMAIL_TITLES[randomEmailNum],
+      emailBody: RANDOM_EMAIL_BODIES[randomEmailNum],
+      senderName: RANDOM_SENDER_NAMES[randomNameNum],
+      senderPictureURL: RANDOM_SENDER_IMAGE_URLS[randomNameNum],
+      senderEmail: RANDOM_SENDER_EMAILS[randomAddressNum]
+    }
+  }
 
   const [emails, setEmails] = useState(returnRandomEmails())
 
@@ -474,8 +495,18 @@ function App() {
     console.log("folder increment")
   }
 
-  let buyFolder = (folderName) => {
+  let buyFolder = () => {
+
     if (sentEmails >= FOLDER_COST) {
+
+      let folderName;
+      for (const folder of folderData) { // Doesn't handle purchasing more folders than exist
+        if (!folder.bought) {
+          folderName = folder.name;
+          break;
+        }
+      }
+
       switch (folderName) {
         case workFolderData.name:
           setWorkFolderData({
@@ -546,8 +577,17 @@ function App() {
     incrementScore();
   }
 
-  let buyAccount = (accountName) => {
+  let buyAccount = () => {
     if (sentEmails >= ACCOUNT_COST) {
+
+      let accountName;
+      for (const account in accountData) { // Doesn't handle purchasing more accounts than exist
+        if (account.bought) {
+          accountName = account.name;
+          break;
+        }
+      }
+
       switch (accountName) {
         case workAccountData.name:
           setWorkAccountData({
@@ -591,45 +631,27 @@ function App() {
     setEmails(copyEmailArray);
   }
 
-  let getSingleRandomEmail = () => {
-    let randomEmailNum = Math.random()*NUM_RANDOM_EMAILS;
-    let randomNameNum = Math.random()*RANDOM_EMAIL_TITLES.length;
-    let randomAddressNum = Math.random()*RANDOM_SENDER_EMAILS.length;
-    return {
-      emailTitle: RANDOM_EMAIL_TITLES[randomEmailNum],
-      emailBody: RANDOM_EMAIL_BODIES[randomEmailNum],
-      senderName: RANDOM_SENDER_NAMES[randomNameNum],
-      senderPictureURL: RANDOM_SENDER_IMAGE_URLS[randomNameNum],
-      senderEmail: RANDOM_SENDER_EMAILS[randomAddressNum]
-    }
-  }
 
-  let returnRandomEmails = (numEmails) => {
-    let emailArray = new Array(numEmails);
-
-    for (let i = 0; i<numEmails; i++) {
-      emailArray[i] = getSingleRandomEmail();
-    }
-    return emailArray;
-  }
 
   let updateFolders = () => {
-    for (let folder in folderData) {
+    console.log("Updating Folders")
+    for (const folder in folderData) {
       if (folder.bought) {
         incrementFolderScore(folder.name);
       }
     }
   }
-  setInterval(updateFolders, 100);
+  setInterval(updateFolders, 10000);
 
   let updateAccount = () => {
-    for (let account in accountData) {
+    console.log("Updating Accounts");
+    for (const account in accountData) {
       if (account.bought) {
         incrementAccountScore(account.name);
       }
     }
   }
-  setInterval(updateAccount, 100)
+  setInterval(updateAccount, 10000)
 
   return (
     <div className="App">
