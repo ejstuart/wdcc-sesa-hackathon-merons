@@ -31,7 +31,7 @@ const EmailViewer = (props) => (
                     <Button><i>Italic</i></Button>
                     <Button><u>Underline</u></Button>
                 </ButtonGroup>
-                <Button className={styles.my_btn} onClick={props.replyFunction}>Reply</Button>
+                <Button className={styles.my_btn} style={{float:'right'}} onClick={props.replyFunction}>Reply</Button>
             </div>
 
         </div>

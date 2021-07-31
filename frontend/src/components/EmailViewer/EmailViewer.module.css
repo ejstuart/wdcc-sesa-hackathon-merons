@@ -53,16 +53,15 @@
 }
 
 .my_btn{
-    cursor:pointer;
-    border-radius: 8px;
-    color: #ffffff;
-    background: #e64545;
-    padding: 10px 20px 10px 20px;
-    border: solid #ffffff 2px;
-    text-decoration: none;
+    cursor:pointer !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    background-color: #e64545 !important;
+    border: solid #ffffff 2px !important;
+    text-decoration: none !important;
 }
 
 .my_btn:hover{
-    background: #d47474;
-    text-decoration: none;
+    background: #d47474 !important;
+    text-decoration: none !important;
 }
