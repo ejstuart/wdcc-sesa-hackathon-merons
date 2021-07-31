@@ -32,6 +32,12 @@
     white-space: pre-line;
 }
 
+.email_body_text{
+    text-align: left;
+    white-space: pre-line;
+    overflow-y: scroll;
+}
+
 .email_body{
     padding-right: 4vw;
 }
