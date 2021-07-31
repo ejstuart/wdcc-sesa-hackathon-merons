@@ -3,6 +3,9 @@ import './App.css';
 import Box from "./components/Box/Box";
 import EmailTab from "./components/EmailTab/EmailTab";
 import EmailTabContainer from "./components/EmailTabContainer/EmailTabContainer";
+import EmailViewer from "./components/EmailViewer/EmailViewer";
+import ScoreSidebar from "./components/ScoreSidebar/ScoreSidebar";
+import SettingsTab from "./components/SettingsTab/SettingsTab";
 
 function App() {
   const NUM_RANDOM_EMAILS = 1
@@ -81,11 +84,31 @@ function App() {
     })
   };
 
+  let updateFolders = () => {
+    for (let folder in folderData) {
+      if (folder.bought) {
+        folder.score++;
+      }
+    }
+  }
+  setInterval(updateFolders, 100);
+
+  let updateAccount = () => {
+    for (let account in accountData) {
+      if (account.bought) {
+        account++
+      }
+    }
+  }
+  setInterval(updateAccount, 100)
+
   return (
     <div className="App">
       <header className="App-header">
-        <Box />
-        <EmailTabContainer emailTabList={emails} />
+        <ScoreSidebar sentEmails={sentEmails} accounts={accountData} folders={folderData} />
+        <EmailTabContainer emailTabArray={emails} />
+        <EmailViewer email={viewEmail} />
+        <SettingsTab buyFolderFunction={buyFolder} buyAccountFunction={buyAccount}/>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
