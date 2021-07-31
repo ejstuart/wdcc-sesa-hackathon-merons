@@ -8,7 +8,7 @@ const SettingsTab = () => (
   </div>
 );
 
-SettingsTab.propTypes = {};
+SettingsTab.propTypes = {buyFolderFunction: PropTypes.function, buyAccountFunction: PropTypes.function};
 
 SettingsTab.defaultProps = {};
 

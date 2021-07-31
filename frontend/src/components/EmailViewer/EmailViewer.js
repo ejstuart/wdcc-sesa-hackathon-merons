@@ -8,7 +8,15 @@ const EmailViewer = () => (
   </div>
 );
 
-EmailViewer.propTypes = {emailTitle: PropTypes.string, emailBody: PropTypes.string, senderName: PropTypes.string, senderEmail: PropTypes.string};
+EmailViewer.propTypes = {
+    email:PropTypes.shape({
+        emailTitle: PropTypes.string,
+        emailBody: PropTypes.string,
+        senderName: PropTypes.string,
+        senderEmail: PropTypes.string
+    }),
+    replyFunction:PropTypes.function
+};
 
 EmailViewer.defaultProps = {};
 

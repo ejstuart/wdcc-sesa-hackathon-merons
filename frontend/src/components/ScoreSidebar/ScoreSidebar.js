@@ -25,7 +25,19 @@ const ScoreSidebar = () => (
     </Box>
 );
 
-ScoreSidebar.propTypes = {sentEmails: PropTypes.number, accounts: PropTypes.array, folders: PropTypes.array};
+ScoreSidebar.propTypes = {
+    sentEmails: PropTypes.number,
+    accounts: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string,
+        score: PropTypes.number,
+        bought: PropTypes.boolean
+    })),
+    folders: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string,
+        score: PropTypes.number,
+        bought: PropTypes.boolean
+    }))
+};
 
 ScoreSidebar.defaultProps = {};
 
