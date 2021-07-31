@@ -8,7 +8,7 @@ const ScoreSidebar = () => (
   </div>
 );
 
-ScoreSidebar.propTypes = {};
+ScoreSidebar.propTypes = {sentEmails: PropTypes.number, accounts: PropTypes.array, folders: PropTypes.array};
 
 ScoreSidebar.defaultProps = {};
 
