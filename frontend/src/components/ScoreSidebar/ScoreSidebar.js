@@ -32,13 +32,19 @@ const ScoreSidebar = (props) => (
                 )
             })}
 
+            {props.accountList.map((item) => {
+                return (
+                    <AccountTab name={item}></AccountTab>
+                )
+            })}
+
         </div>
     </Box>
 );
 
 ScoreSidebar.propTypes = {
     sentEmails: PropTypes.number,
-    accounts: PropTypes.arrayOf(PropTypes.string),
+    accountList: PropTypes.arrayOf(PropTypes.string),
     folderList: PropTypes.arrayOf(PropTypes.string)
 };
 

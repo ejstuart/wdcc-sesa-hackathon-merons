@@ -18,13 +18,13 @@ const AccountTab = (props) => {
     return (
         <div className={styles.AccountTab}>
             <ListItem button key={'Accounts'} className={styles.menuItem}>
-                <ListItemIcon><AccountCircleIcon/></ListItemIcon> <ListItemText primary={props.name} />
+                <ListItemIcon><AccountCircleIcon/></ListItemIcon> <ListItemText primary={props.name  + "   " + score} />
             </ListItem>
         </div>
     );
 }
 
-AccountTab.propTypes = {name: PropTypes.string, bought: PropTypes.bool};
+AccountTab.propTypes = {name: PropTypes.string};
 
 AccountTab.defaultProps = {};
 
