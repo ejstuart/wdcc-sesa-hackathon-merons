@@ -350,56 +350,78 @@ function App() {
 
 
 
-  let emails = [];
-  let viewEmail = emails[0];
+  const [emails, setEmails] = useState([])
 
-  let folderData = [
-    {
-      name: "spam",
-      score: 0,
-      bought: false
-    },
-    {
-      name: "uni",
-      score: 0,
-      bought: false
-    },
-    {
-      name: "work",
-      score: 0,
-      bought: false
-    },
-    {
-      name: "important",
-      score: 0,
-      bought: false
-    },
-    {
-      name: "family",
-      score: 0,
-      bought: false
-    }
-  ];
+  const [viewEmail, setViewEmail] = useState(emails[0])
+
+  // Folder Data
+
+  const [spamFolderData, setSpamFolderData] = useState({
+    name: "spam",
+    score: 0,
+    bought: false
+  });
+
+  const [uniFolderData, setUniFolderData] = useState({
+    name: "uni",
+    score: 0,
+    bought: false
+  })
+
+  const [workFolderData, setWorkFolderData] = useState({
+    name: "work",
+    score: 0,
+    bought: false
+  })
+
+  const [importantFolderData, setImportantFolderData] = useState({
+    name: "important",
+    score: 0,
+    bought: false
+  })
+
+  const [familyFolderData, setFamilyFolderData] = useState({
+    name: "family",
+    score: 0,
+    bought: false
+  })
+
+  const folderData = [
+   spamFolderData,
+   uniFolderData,
+   workFolderData,
+   importantFolderData,
+   familyFolderData
+  ]
+
+  // Account Data
+
+  const [workAccountData, setWorkAccountData] = useState({
+    name: "Work Email",
+    score: 0,
+    bought: false
+  })
+
+  const [schoolAccountData, setSchoolAccountData] = useState({
+    name: "School Account",
+    score: 0,
+    bought: false
+  })
+
+  const [spamAccountData, setSpamAccountData] = useState({
+    name: "Spam Account",
+    score: 0,
+    bought: false
+  })
 
   let accountData = [
-    {
-      name: "Work Email",
-      score: 0,
-      bought: false
-    },
-    {
-      name: "School Email",
-      score: 0,
-      bought: false
-    },
-    {
-      name: "Spam Email",
-      score: 0,
-      bought: false
-    }
+      workAccountData,
+      schoolAccountData,
+      spamAccountData
     ];
 
   let reply = () => {
+    console.log("Sent Reply")
     incrementScore();
     addNewRandomEmail();
     loadFirstEmailToViewer();
@@ -408,37 +430,155 @@ function App() {
   const [sentEmails, setSentEmails] = useState(0)
   const incrementScore = () => {
     setSentEmails(sentEmails+1);
-    console.log("This Happened")
+    console.log("Score Increment")
   }
 
-
-
-  let incrementFolderScore = (folderNum) => {
-    folderData[folderNum].score++;
+  let incrementFolderScore = (folderName) => {
+    switch (folderName) {
+      case workFolderData.name:
+        setWorkFolderData({
+          name: workFolderData.name,
+          score: workFolderData.score + 1,
+          bought: workFolderData.bought
+        })
+        break;
+      case spamFolderData.name:
+        setSpamFolderData({
+          name: spamFolderData.name,
+          score: spamFolderData.score + 1,
+          bought: spamFolderData.bought
+        });
+        break;
+      case uniFolderData.name:
+        setUniFolderData({
+          name: uniFolderData.name,
+          score: uniFolderData.score + 1,
+          bought: uniFolderData.bought
+        });
+        break;
+      case importantFolderData.name:
+        setImportantFolderData({
+          name: importantFolderData.name,
+          score: importantFolderData.score + 1,
+          bought: importantFolderData.bought
+        });
+        break;
+      case familyFolderData.name:
+        setFamilyFolderData({
+          name: familyFolderData.name,
+          score: familyFolderData.score + 1,
+          bought: familyFolderData.bought
+        });
+        break;
+    }
     incrementScore();
     console.log("folder increment")
   }
 
-  let buyFolder = (folderNum) => {
+  let buyFolder = (folderName) => {
     if (sentEmails >= FOLDER_COST) {
-      folderData[folderNum].bought = true;
+      switch (folderName) {
+        case workFolderData.name:
+          setWorkFolderData({
+            name: workFolderData.name,
+            score: workFolderData.score,
+            bought: true
+          });
+          break;
+        case spamFolderData.name:
+          setSpamFolderData({
+            name: spamFolderData.name,
+            score: spamFolderData.score,
+            bought: true
+          });
+          break;
+        case uniFolderData.name:
+          setUniFolderData({
+            name: uniFolderData.name,
+            score: uniFolderData.score,
+            bought: true
+          });
+          break;
+        case importantFolderData.name:
+          setImportantFolderData({
+            name: importantFolderData.name,
+            score: importantFolderData.score,
+            bought: true
+          });
+          break;
+        case familyFolderData.name:
+          setFamilyFolderData({
+            name: familyFolderData.name,
+            score: familyFolderData.score,
+            bought: true
+          });
+          break;
+      }
+      console.log("Bought Folder: " + folderName)
       setSentEmails(sentEmails - FOLDER_COST);
     }
   }
 
-  let incrementAccountScore = (accountNum) => {
-    accountData[accountNum].score++;
+  let incrementAccountScore = (accountName) => {
+    switch (accountName) {
+      case workAccountData.name:
+        setWorkAccountData({
+          name: workAccountData.name,
+          score: workAccountData.score + 1,
+          bought: workAccountData.bought
+        });
+        break;
+      case schoolAccountData.name:
+        setSchoolAccountData({
+          name: schoolAccountData.name,
+          score: schoolAccountData.score + 1,
+          bought: schoolAccountData.bought
+        });
+        break;
+      case spamAccountData.name:
+        setSpamAccountData({
+          name: spamAccountData.name,
+          score: spamAccountData.score + 1,
+          bought: spamAccountData.bought
+        });
+        break
+    }
+    console.log("Account Score incremented");
+    incrementScore();
   }
 
-  let buyAccount = (accountNum) => {
+  let buyAccount = (accountName) => {
     if (sentEmails >= ACCOUNT_COST) {
-      accountData[accountNum].bought = true;
+      switch (accountName) {
+        case workAccountData.name:
+          setWorkAccountData({
+            name: workAccountData.name,
+            score: workAccountData.score,
+            bought: true
+          });
+          break;
+        case schoolAccountData.name:
+          setSchoolAccountData({
+            name: schoolAccountData.name,
+            score: schoolAccountData.score,
+            bought: true
+          });
+          break;
+        case spamAccountData.name:
+          setSpamAccountData({
+            name: spamAccountData.name,
+            score: spamAccountData.score,
+            bought: true
+          });
+          break;
+      }
+      console.log("Bought Account: " + accountName)
       setSentEmails(sentEmails - ACCOUNT_COST);
     }
   }
 
   let loadFirstEmailToViewer = () => {
-    let viewEmail = emails[0];
+    setViewEmail(emails[0]);
   }
 
   let addNewRandomEmail = () => {
@@ -447,8 +587,7 @@ function App() {
     let randomNameNum = Math.random()*RANDOM_EMAIL_TITLES.length;
     let randomAddressNum = Math.random()*RANDOM_SENDER_EMAILS.length;
 
-    emails.shift();
-    emails.push({
+    setEmails(emails.slice(1),{
       emailTitle: RANDOM_EMAIL_TITLES[randomEmailNum],
       emailBody: RANDOM_EMAIL_BODIES[randomEmailNum],
       senderName: RANDOM_SENDER_NAMES[randomNameNum],
@@ -461,7 +600,7 @@ function App() {
     for (let folder in folderData) {
       if (folder.bought) {
         incrementScore();
-        incrementFolderScore();
+        incrementFolderScore(folder.name);
       }
     }
   }
@@ -471,7 +610,7 @@ function App() {
     for (let account in accountData) {
       if (account.bought) {
         incrementScore();
-        incrementAccountScore();
+        incrementAccountScore(account.name);
       }
     }
   }
