@@ -30,12 +30,12 @@ ScoreSidebar.propTypes = {
     accounts: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string,
         score: PropTypes.number,
-        bought: PropTypes.boolean
+        bought: PropTypes.bool
     })),
     folders: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string,
         score: PropTypes.number,
-        bought: PropTypes.boolean
+        bought: PropTypes.bool
     }))
 };
 
