@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React from 'react';
+import React, {useState} from 'react';
 import ScoreSidebar from "./components/ScoreSidebar/ScoreSidebar";
 import EmailViewer from "./components/EmailViewer/EmailViewer";
 import EmailTab from "./components/EmailTab/EmailTab";
@@ -326,7 +326,7 @@ function App() {
   const FOLDER_COST = 100
   const ACCOUNT_COST = 500
 
-  let sentEmails = 0;
+
 
   let emails = [];
   let viewEmail = emails[0];
@@ -383,10 +383,13 @@ function App() {
     loadFirstEmailToViewer();
   }
 
-  let incrementScore = () => {
-    sentEmails++;
+  const [sentEmails, setSentEmails] = useState(0)
+  const incrementScore = () => {
+    setSentEmails(sentEmails+1);
     console.log("This Happened")
   }
+
+
 
   let incrementFolderScore = (folderNum) => {
     folderData[folderNum].score++;
@@ -395,7 +398,7 @@ function App() {
   let buyFolder = (folderNum) => {
     if (sentEmails >= FOLDER_COST) {
       folderData[folderNum].bought = true;
-      sentEmails = sentEmails - FOLDER_COST;
+      setSentEmails(sentEmails - FOLDER_COST);
     }
   }
 
@@ -406,7 +409,7 @@ function App() {
   let buyAccount = (accountNum) => {
     if (sentEmails >= ACCOUNT_COST) {
       accountData[accountNum].bought = true;
-      sentEmails = sentEmails - ACCOUNT_COST;
+      setSentEmails(sentEmails - ACCOUNT_COST);
     }
   }
 
