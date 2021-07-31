@@ -25,6 +25,7 @@ const ScoreSidebar = (props) => (
                 <ListItemIcon><MailIcon/></ListItemIcon>
                 <ListItemText primary={'Starred '} />
             </ListItem>
+
             {props.folderList.map((item) => {
                 return (
                     <FolderTab name={item}></FolderTab>
