@@ -10,7 +10,7 @@ const EmailViewer = (props) => (
     <div className={styles.EmailViewer}>
 
         <div className={styles.sender_head}>
-            <div className={styles.circle}>{props.email.senderImageURL}</div>
+            <div className={styles.circle}><img src={props.email.senderImageURL}/></div>
 
             <div className={styles.sender_info}>
                 <h3 className={styles.email_text}>{props.email.senderName}</h3>
