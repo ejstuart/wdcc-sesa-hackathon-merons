@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './EmailTab.css';
+import styles from './EmailTab.module.css';
 
 const EmailTab = (props) => (
     <div className="EmailTab">
-        <h4>{props.email.emailTitle}</h4>
-        <p>{props.email.emailBody}</p>
+        <div className={styles.emailBox}>
+            <div className={styles.circle}>
+                <img src={props.email.senderImageURL}/>
+            </div>
+            <div className={styles.senderInfo}>
+                <h4 className={styles.tabText}>{props.email.emailTitle}</h4>
+                <p className={styles.tabText}>{props.email.emailBody}</p>
+            </div>
+        </div>
     </div>
 );
 
