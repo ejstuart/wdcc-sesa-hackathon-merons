@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import styles from './FolderTab.module.css';
+import {ListItemIcon, ListItemText} from "@material-ui/core";
+import FolderIcon from "@material-ui/icons/Folder";
 
 const FolderTab = (props) => {
 
@@ -16,7 +18,8 @@ const FolderTab = (props) => {
 
     return (
         <div className={styles.FolderTab}>
-            FolderTab Component
+            <ListItemIcon><FolderIcon/></ListItemIcon>
+            <ListItemText primary={props.name} />
         </div>
     );
 };

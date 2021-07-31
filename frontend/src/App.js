@@ -473,7 +473,7 @@ function App() {
       }
       if (numBoughtFolders === 0) {
         console.log("Starting Folder Update Timer");
-        setInterval(updateFolders, 1000);
+        // setInterval(updateFolders, 1000);
       }
     }
   }
@@ -506,7 +506,7 @@ function App() {
         // if no accounts have been bought, start the timer
       }
       if (numBoughtAccounts === 0) {
-        setInterval(updateAccount, 10000);
+        // setInterval(updateAccount, 10000);
       }
     }
   }

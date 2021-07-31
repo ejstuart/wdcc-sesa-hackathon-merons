@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import styles from './AccountTab.module.css';
+import {ListItemIcon, ListItemText} from "@material-ui/core";
+import FolderIcon from "@material-ui/icons/Folder";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 const AccountTab = (props) => {
 
@@ -15,9 +18,10 @@ const AccountTab = (props) => {
     }, []);
 
     return (
-      <div className={styles.AccountTab}>
-        AccountTab Component
-      </div>
+        <div className={styles.AccountTab}>
+            <ListItemIcon><AccountCircleIcon/></ListItemIcon>
+            <ListItemText primary={props.name} />
+        </div>
     );
 }
 
