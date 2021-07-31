@@ -452,7 +452,7 @@ function App() {
   }
 
   let loadFirstEmailToViewer = () => {
-    setViewEmail(emails[0]);
+    setViewEmail(emails[1]);
   }
 
   let addNewRandomEmail = () => {
