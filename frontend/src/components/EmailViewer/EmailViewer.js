@@ -25,7 +25,7 @@ const EmailViewer = (props) => (
               I made over $10000000000 in just ONE DAY!
           </Typography >
 
-          <TextField variant={"outlined"} fullWidth multiline rows={4} disabled>
+          <TextField variant={"outlined"} fullWidth multiline rows={3} disabled>
 
           </TextField>
           <div>
