@@ -59,12 +59,10 @@ ScoreSidebar.propTypes = {
     sentEmails: PropTypes.number,
     accounts: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string,
-        score: PropTypes.number,
         bought: PropTypes.bool
     })),
     folders: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string,
-        score: PropTypes.number,
         bought: PropTypes.bool
     }))
 };

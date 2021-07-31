@@ -417,19 +417,16 @@ function App() {
 
   let workAccountData = {
     name: "Work Email",
-    score: 0,
     bought: false
   };
 
   let schoolAccountData = {
     name: "School Account",
-    score: 0,
     bought: false
   };
 
   let spamAccountData = {
     name: "Spam Account",
-    score: 0,
     bought: false
   };
 
@@ -476,16 +473,6 @@ function App() {
         // setInterval(updateFolders, 1000);
       }
     }
-  }
-
-  let incrementAccountScore = (accountName) => {
-    for (let account of accountData) {
-      if (account.name === accountName) {
-        account.score++;
-      }
-    }
-    console.log("Account Score incremented");
-    incrementScore();
   }
 
   let buyAccount = () => {
