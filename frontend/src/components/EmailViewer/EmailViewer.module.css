@@ -1,4 +1,37 @@
 .EmailViewer {
-    background-color: aquamarine;
-    flex-grow: 1;
+    border-left: 1px solid dimgray;
+    border-bottom: 1px solid dimgray;
+    padding-left: 6vh;
+    padding-top: 4vh;
+    padding-bottom: 6vh;
+    display: inline-block;
+}
+
+.circle {
+    height: 70px;
+    width: 70px;
+    background-color: #555555;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.sender_head{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2vw;
+}
+
+.sender_info{
+    display: flex;
+    flex-direction: column;
+}
+
+.email_text{
+    text-align: left;
+    white-space: pre-line;
+}
+
+.email_body{
+    padding-right: 4vw;
 }

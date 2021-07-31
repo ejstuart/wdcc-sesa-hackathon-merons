@@ -477,6 +477,7 @@ function App() {
   }
   setInterval(updateAccount, 100)
 
+
   return (
     <div className="App">
         <ScoreSidebar sentEmails={sentEmails} accounts={accountData} folders={folderData}/>
