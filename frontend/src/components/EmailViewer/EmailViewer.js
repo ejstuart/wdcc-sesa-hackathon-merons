@@ -15,7 +15,7 @@ EmailViewer.propTypes = {
         senderName: PropTypes.string,
         senderEmail: PropTypes.string
     }),
-    replyFunction:PropTypes.function
+    replyFunction:PropTypes.func
 };
 
 EmailViewer.defaultProps = {};
