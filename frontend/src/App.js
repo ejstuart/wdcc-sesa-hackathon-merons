@@ -349,8 +349,7 @@ function App() {
   const ACCOUNT_COST = 50
 
 
-
-  const [emails, setEmails] = useState([])
+  const [emails, setEmails] = useState(returnRandomEmails())
 
   const [viewEmail, setViewEmail] = useState(emails[0])
 
@@ -582,24 +581,41 @@ function App() {
   }
 
   let addNewRandomEmail = () => {
-    // Does this work?
+
+    let copyEmailArray = new Array(emails.length);
+
+    for (let i = 0; i < emails.length - 1; i++) {
+      copyEmailArray[i] = emails[i];
+    }
+    copyEmailArray[emails.length-1] = getSingleRandomEmail();
+    setEmails(copyEmailArray);
+  }
+
+  let getSingleRandomEmail = () => {
     let randomEmailNum = Math.random()*NUM_RANDOM_EMAILS;
     let randomNameNum = Math.random()*RANDOM_EMAIL_TITLES.length;
     let randomAddressNum = Math.random()*RANDOM_SENDER_EMAILS.length;
-
-    setEmails(emails.slice(1),{
+    return {
       emailTitle: RANDOM_EMAIL_TITLES[randomEmailNum],
       emailBody: RANDOM_EMAIL_BODIES[randomEmailNum],
       senderName: RANDOM_SENDER_NAMES[randomNameNum],
       senderPictureURL: RANDOM_SENDER_IMAGE_URLS[randomNameNum],
       senderEmail: RANDOM_SENDER_EMAILS[randomAddressNum]
-    })
-  };
+    }
+  }
+
+  let returnRandomEmails = (numEmails) => {
+    let emailArray = new Array(numEmails);
+
+    for (let i = 0; i<numEmails; i++) {
+      emailArray[i] = getSingleRandomEmail();
+    }
+    return emailArray;
+  }
 
   let updateFolders = () => {
     for (let folder in folderData) {
       if (folder.bought) {
-        incrementScore();
         incrementFolderScore(folder.name);
       }
     }
@@ -609,7 +625,6 @@ function App() {
   let updateAccount = () => {
     for (let account in accountData) {
       if (account.bought) {
-        incrementScore();
         incrementAccountScore(account.name);
       }
     }
