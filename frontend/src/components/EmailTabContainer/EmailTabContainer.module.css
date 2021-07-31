@@ -1,7 +1,6 @@
 .EmailTabContainer {
-    width: 500px;
-    height: 100vh;
     background-color: cornflowerblue;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }

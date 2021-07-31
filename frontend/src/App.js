@@ -87,13 +87,15 @@ function App() {
   return (
     <div className="App">
         <ScoreSidebar/>
+      <div className={"BodyBox"}>
         <EmailTabContainer emailTabList={emails} >
-            <EmailTab/>
+          <EmailTab/>
         </EmailTabContainer>
         <div className={"RightBox"}>
-            <EmailViewer/>
-            <SettingsTab/>
+          <EmailViewer/>
+          <SettingsTab/>
         </div>
+      </div>
     </div>
   );
 }

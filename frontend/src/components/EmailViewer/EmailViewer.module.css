@@ -1,7 +1,4 @@
 .EmailViewer {
-    height: 200px;
-    width: 500px;
-    border: 10px #282c34;
     background-color: aquamarine;
     flex-grow: 1;
 }
