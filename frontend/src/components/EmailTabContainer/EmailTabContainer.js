@@ -14,7 +14,8 @@ EmailTabContainer.propTypes = {emailTabArray: PropTypes.arrayOf(PropTypes.shape(
         emailBody: PropTypes.string,
         senderName: PropTypes.string,
         senderEmail: PropTypes.string
-    }))};
+    }))
+};
 
 EmailTabContainer.defaultProps = {};
 

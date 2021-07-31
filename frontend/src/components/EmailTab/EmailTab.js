@@ -8,8 +8,13 @@ const EmailTab = () => (
   </div>
 );
 
-EmailTab.propTypes = {emailTitle: PropTypes.string, emailBody: PropTypes.string, senderName: PropTypes.string};
+EmailTab.propTypes = {
+    emailTitle: PropTypes.string,
+    emailBody: PropTypes.string,
+    senderName: PropTypes.string,
+    senderEmail: PropTypes.string
+};
 
-EmailTab.defaultProps = {"DEFAULT_EMAIL_TITLE": PropTypes.string, "DEFAULT_EMAIL_NAME": PropTypes.string, "DEFAULT_SENDER_NAME": PropTypes.string};
+EmailTab.defaultProps = {"DEFAULT_EMAIL_TITLE": PropTypes.string, "DEFAULT_EMAIL_NAME": PropTypes.string, "DEFAULT_SENDER_NAME": PropTypes.string, "DEFAULT_SENDER_EMAIL": PropTypes.string};
 
 export default EmailTab;
