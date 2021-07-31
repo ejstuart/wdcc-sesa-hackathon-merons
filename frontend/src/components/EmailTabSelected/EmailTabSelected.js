@@ -6,7 +6,7 @@ const EmailTab = (props) => (
     <div className="EmailTab">
         <div className={styles.emailBox}>
             <div className={styles.circle}>
-                <img src={props.email.senderImageURL}/>
+                <img src={props.email.senderImageURL} className={styles.circle}/>
             </div>
             <div className={styles.senderInfo}>
                 <h4 className={styles.tabText}>{props.email.emailTitle}</h4>
