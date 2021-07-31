@@ -12,15 +12,15 @@ const EmailTabContainer = (props) => (
   <div className={styles.EmailTabContainer}>
       <p>Inbox</p>
       <EmailTab email={props.emailTabInfoArray[0]} className={styles.EmailTab}/>
-      <EmailTab EmailTab={props.emailTabInfoArray[1]} className={styles.EmailTab}/>
-      <EmailTab EmailTab={props.emailTabInfoArray[2]} className={styles.EmailTab}/>
-      <EmailTab EmailTab={props.emailTabInfoArray[3]} className={styles.EmailTab}/>
-      <EmailTab EmailTab={props.emailTabInfoArray[4]} className={styles.EmailTab}/>
-      <EmailTab EmailTab={props.emailTabInfoArray[5]} className={styles.EmailTab}/>
-      <EmailTab EmailTab={props.emailTabInfoArray[6]} className={styles.EmailTab}/>
-      <EmailTab EmailTab={props.emailTabInfoArray[7]} className={styles.EmailTab}/>
-      <EmailTab EmailTab={props.emailTabInfoArray[8]} className={styles.EmailTab}/>
-      <EmailTab EmailTab={props.emailTabInfoArray[9]} className={styles.EmailTab}/>
+      <EmailTab email={props.emailTabInfoArray[1]} className={styles.EmailTab}/>
+      <EmailTab email={props.emailTabInfoArray[2]} className={styles.EmailTab}/>
+      <EmailTab email={props.emailTabInfoArray[3]} className={styles.EmailTab}/>
+      <EmailTab email={props.emailTabInfoArray[4]} className={styles.EmailTab}/>
+      <EmailTab email={props.emailTabInfoArray[5]} className={styles.EmailTab}/>
+      <EmailTab email={props.emailTabInfoArray[6]} className={styles.EmailTab}/>
+      <EmailTab email={props.emailTabInfoArray[7]} className={styles.EmailTab}/>
+      <EmailTab email={props.emailTabInfoArray[8]} className={styles.EmailTab}/>
+      <EmailTab email={props.emailTabInfoArray[9]} className={styles.EmailTab}/>
 
   </div>
 );
