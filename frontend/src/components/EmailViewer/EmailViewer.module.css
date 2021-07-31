@@ -30,12 +30,22 @@
 .email_text{
     text-align: left;
     white-space: pre-line;
+    margin:0px;
+    padding-bottom: 4px;
+}
+
+.email_sender_text{
+    text-align: left;
+    white-space: pre-line;
+    margin:0px;
+    font-style: italic;
 }
 
 .email_body_text{
     text-align: left;
     white-space: pre-line;
     overflow-y: scroll;
+    height: 200px;
 }
 
 .email_body{
