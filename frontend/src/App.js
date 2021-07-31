@@ -323,8 +323,8 @@ function App() {
     "ernesto.roth@deer.com",
   ];
 
-  const FOLDER_COST = 100
-  const ACCOUNT_COST = 500
+  const FOLDER_COST = 10
+  const ACCOUNT_COST = 50
 
 
 
@@ -393,6 +393,8 @@ function App() {
 
   let incrementFolderScore = (folderNum) => {
     folderData[folderNum].score++;
+    incrementScore();
+    console.log("folder increment")
   }
 
   let buyFolder = (folderNum) => {
@@ -460,8 +462,8 @@ function App() {
           <EmailTab/>
         </EmailTabContainer>
         <div className={"RightBox"}>
-          <EmailViewer email={viewEmail} replyFunction={incrementScore}/>
-          <SettingsTab/>
+          <EmailViewer email={viewEmail} replyFunction={reply}/>
+          <SettingsTab buyFolderFunction={buyFolder} buyAccountFunction={buyAccount}/>
         </div>
       </div>
     </div>
