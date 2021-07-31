@@ -450,7 +450,7 @@ function App() {
 
   return (
     <div className="App">
-        <ScoreSidebar/>
+        <ScoreSidebar sentEmails={sentEmails} accounts={accountData} folders={folderData}/>
       <div className={"BodyBox"}>
         <EmailTabContainer emailTabList={emails} >
           <EmailTab/>
