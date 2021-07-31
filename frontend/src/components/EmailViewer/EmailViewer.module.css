@@ -51,3 +51,18 @@
 .email_body{
     padding-right: 4vw;
 }
+
+.my_btn{
+    cursor:pointer;
+    border-radius: 8px;
+    color: #ffffff;
+    background: #e64545;
+    padding: 10px 20px 10px 20px;
+    border: solid #ffffff 2px;
+    text-decoration: none;
+}
+
+.my_btn:hover{
+    background: #d47474;
+    text-decoration: none;
+}
