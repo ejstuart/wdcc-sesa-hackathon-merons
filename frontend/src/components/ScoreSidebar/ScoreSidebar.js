@@ -26,6 +26,10 @@ const ScoreSidebar = (props) => (
             </ListItem>
 
             <ListItem button key={'Folders'} className={styles.menuItem}>
+                <ListItemIcon><FolderIcon/></ListItemIcon>
+                <ListItemText primary={'Folders '} />
+            </ListItem>
+            <ListItem button key={'Folders'} className={styles.menuItem}>
                 <FolderTab name={props.folders[0].name} bought={props.folders[0].bought}/>
             </ListItem>
             <ListItem button key={'Folders'} className={styles.menuItem}>
@@ -41,6 +45,10 @@ const ScoreSidebar = (props) => (
                 <FolderTab name={props.folders[4].name} bought={props.folders[4].bought}/>
             </ListItem>
 
+            <ListItem button key={'Accounts'} className={styles.menuItem}>
+                <ListItemIcon><AccountCircleIcon/></ListItemIcon>
+                <ListItemText primary={'Accounts '} />
+            </ListItem>
             <ListItem button key={'Accounts'} className={styles.menuItem}>
                 <AccountTab name={props.accounts[0].name} bought={props.accounts[0].bought}/>
             </ListItem>
