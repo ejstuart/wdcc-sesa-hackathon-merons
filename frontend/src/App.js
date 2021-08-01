@@ -445,7 +445,7 @@ function App() {
 
   return (
   <div className="App">
-    <ScoreSidebar sentEmails={sentEmails} accounts={accountList} folderList={folderList}/>
+    <ScoreSidebar sentEmails={sentEmails} accountList={accountList} folderList={folderList}/>
     <div className={"BodyBox"}>
       <EmailTabContainer emailTabInfoArray={emails} />
       <div className={"RightBox"}>

@@ -45,6 +45,7 @@
     text-align: left;
     white-space: pre-line;
     overflow-y: scroll;
+    overscroll-behavior: contain;
     height: 100px;
 }
 

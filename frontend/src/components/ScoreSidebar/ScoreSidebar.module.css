@@ -6,6 +6,7 @@
     box-shadow: 0 0 10px #555555;
     position: relative;
     overflow-y: scroll;
+    overscroll-behavior: contain;
 
 }
 
