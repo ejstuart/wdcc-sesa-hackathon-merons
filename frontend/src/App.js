@@ -413,6 +413,7 @@ function App() {
       let newFolderList = [...folderList];
       newFolderList.push(newFolderName);
       editFolderList(newFolderList);
+      changeScore(-FOLDER_COST);
     }
   }
 
