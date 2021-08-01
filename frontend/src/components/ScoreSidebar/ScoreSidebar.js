@@ -25,7 +25,11 @@ const ScoreSidebar = (props) => (
                 <ListItemIcon><MailIcon/></ListItemIcon>
                 <ListItemText primary={'Starred '} />
             </ListItem>
-
+            {props.folderList.map((item) => {
+                return (
+                    <FolderTab name={item}></FolderTab>
+                )
+            })}
             <ListItem button key={'Folders'} className={styles.menuItem}>
                 <ListItemIcon><FolderIcon/></ListItemIcon>
                 <ListItemText primary={'Folders '} />
@@ -66,14 +70,8 @@ const ScoreSidebar = (props) => (
 
 ScoreSidebar.propTypes = {
     sentEmails: PropTypes.number,
-    accounts: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string,
-        bought: PropTypes.bool
-    })),
-    folders: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string,
-        bought: PropTypes.bool
-    }))
+    accounts: PropTypes.arrayOf(PropTypes.string),
+    folderList: PropTypes.arrayOf(PropTypes.string)
 };
 
 ScoreSidebar.defaultProps = {};
