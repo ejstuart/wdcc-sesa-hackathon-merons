@@ -345,6 +345,14 @@ function App() {
     "ernesto.roth@deer.com",
   ];
 
+  const FOLDER_NAMES = [
+      "work",
+      "uni",
+      "spam",
+      "school",
+
+  ]
+
   const NUM_FOLDERS = 5;
   const FOLDER_COST = 10;
   const NUM_ACCOUNTS = 4;
@@ -374,45 +382,9 @@ function App() {
 
 
   const [emails, setEmails] = useState(returnRandomEmails(10))
-
   const [viewEmail, setViewEmail] = useState(emails[0])
 
-  // Folder Data
-
-  let spamFolderData = {
-    name: "spam",
-    bought: false
-  };
-
-  let uniFolderData = {
-    name: "uni",
-    bought: false
-  }
-
-  let workFolderData = {
-    name: "work",
-    bought: false
-  };
-
-  let importantFolderData = {
-    name: "important",
-    bought: false
-  };
-
-  let familyFolderData = {
-    name: "family",
-    bought: false
-  };
-
-
-  let folderData = [
-   spamFolderData,
-   uniFolderData,
-   workFolderData,
-   importantFolderData,
-   familyFolderData
-]
-
+  const [folderList, editFolderList] = useState([])
   // Account Data
 
   let workAccountData = {
@@ -438,47 +410,34 @@ function App() {
 
   let reply = () => {
     console.log("Sent Reply")
-    incrementScore();
+    changeScore(1);
     addNewRandomEmail();
     loadFirstEmailToViewer();
   }
 
-  const [sentEmails, setSentEmails] = useState(0)
+  const [sentEmails, setSentEmails] = useState(0);
 
-
-  let incrementScore = () => {
-    setSentEmails(sentEmails+1);
+  let changeScore = (amount) => {
+    setSentEmails(sentEmails + amount);
     console.log("Score Increment: " + sentEmails);
   }
 
 
-
   let buyFolder = () => {
     if (sentEmails >= FOLDER_COST) {
-      let numBoughtFolders = 0;
-      for (let folder of folderData) { // Doesn't handle purchasing more folders than exist
-        if (!folder.bought) {
-          folder.bought = true;
-          console.log("Bought Folder: " + folder.name)
-          break;
-        } else {
-          numBoughtFolders++;
-        }
-      }
-      if (numBoughtFolders !== NUM_FOLDERS) {
-        setSentEmails(sentEmails - FOLDER_COST);
-      }
-      if (numBoughtFolders === 0) {
-        console.log("Starting Folder Update Timer");
-        // setInterval(updateFolders, 1000);
-      }
+      let newFolderName = FOLDER_NAMES[folderList.length];
+      editFolderList(folderList.push(newFolderName));
     }
+  }
+
+  let buySpecificFolder = (folderName) => {
+
   }
 
   let buyAccount = () => {
     if (sentEmails >= ACCOUNT_COST) {
       let numBoughtAccounts = 0;
-      for (let account of accountData) { // Doesn't handle purchasing more accounts than exist
+      for (let account of accountData) {
         if (!account.bought) {
           console.log("Bought Account: " + account.name);
           account.bought = true;
@@ -489,11 +448,7 @@ function App() {
       }
       // check if already bought every account
       if (numBoughtAccounts !== NUM_ACCOUNTS) {
-        setSentEmails(sentEmails - ACCOUNT_COST);
-        // if no accounts have been bought, start the timer
-      }
-      if (numBoughtAccounts === 0) {
-        // setInterval(updateAccount, 10000);
+        changeScore(-ACCOUNT_COST);
       }
     }
   }
