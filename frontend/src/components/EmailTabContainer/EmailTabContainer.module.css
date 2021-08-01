@@ -15,6 +15,12 @@
     justify-content: space-evenly;
 }
 
+.EmailTabSelected {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
 .EmailTabTitle {
 
 }
