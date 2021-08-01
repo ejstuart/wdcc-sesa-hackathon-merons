@@ -71,7 +71,7 @@ const ScoreSidebar = (props) => (
 ScoreSidebar.propTypes = {
     sentEmails: PropTypes.number,
     accounts: PropTypes.arrayOf(PropTypes.string),
-    folderList:
+    folderList: PropTypes.arrayOf(PropTypes.string)
 };
 
 ScoreSidebar.defaultProps = {};
