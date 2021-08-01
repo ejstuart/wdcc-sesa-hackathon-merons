@@ -17,7 +17,8 @@ const FolderTab = (props) => {
     return (
         <div className={styles.FolderTab}>
             <ListItem button key={'Accounts'} className={styles.menuItem}>
-                <ListItemIcon><FolderIcon/></ListItemIcon> <ListItemText primary={props.name + '    ' + score} />
+                <ListItemIcon><FolderIcon/></ListItemIcon> <ListItemText primary={props.name} style={{"padding-right":"30px"}}/>
+                <ListItemText primary={score}/>
             </ListItem>
         </div>
     );
