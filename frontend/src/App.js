@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ScoreSidebar from "./components/ScoreSidebar/ScoreSidebar";
 import EmailViewer from "./components/EmailViewer/EmailViewer";
 import EmailTab from "./components/EmailTab/EmailTab";
@@ -417,8 +417,6 @@ function App() {
    familyFolderData
   ]
 
-  let numBoughtFolders = 0;
-
   // Account Data
 
   let workAccountData = {
@@ -445,8 +443,6 @@ function App() {
       spamAccountData
     ];
 
-  let numBoughtAccounts = 0;
-
   let reply = () => {
     console.log("Sent Reply")
     incrementScore();
@@ -455,44 +451,34 @@ function App() {
   }
 
   const [sentEmails, setSentEmails] = useState(0)
+
+
   let incrementScore = () => {
     setSentEmails(sentEmails+1);
-    console.log("Score Increment")
-  }
-
-  let incrementFolderScore = (folderName) => {
-    console.log("Folder Increment Start")
-
-    for (let folder in folderData) {
-      if (folder.name === folderName) {
-        folder.score++;
-        break;
-      }
-    }
-    incrementScore();
-    console.log("folder increment end")
+    console.log("Score Increment: " + sentEmails);
   }
 
 
 
   let buyFolder = () => {
-
-    if (sentEmails >= FOLDER_COST && numBoughtFolders < NUM_FOLDERS) {
-
+    if (sentEmails >= FOLDER_COST) {
+      let numBoughtFolders = 0;
       for (let folder of folderData) { // Doesn't handle purchasing more folders than exist
         if (!folder.bought) {
           folder.bought = true;
           console.log("Bought Folder: " + folder.name)
           break;
+        } else {
+          numBoughtFolders++;
         }
       }
-      setSentEmails(sentEmails - FOLDER_COST);
-
+      if (numBoughtFolders !== NUM_FOLDERS) {
+        setSentEmails(sentEmails - FOLDER_COST);
+      }
       if (numBoughtFolders === 0) {
         console.log("Starting Folder Update Timer");
         setInterval(updateFolders, 1000);
       }
-      numBoughtFolders++;
     }
   }
 
@@ -507,19 +493,25 @@ function App() {
   }
 
   let buyAccount = () => {
-    if (sentEmails >= ACCOUNT_COST && numBoughtAccounts < NUM_ACCOUNTS) {
+    if (sentEmails >= ACCOUNT_COST) {
+      let numBoughtAccounts = 0;
       for (let account of accountData) { // Doesn't handle purchasing more accounts than exist
         if (!account.bought) {
           console.log("Bought Account: " + account.name);
           account.bought = true;
           break;
+        } else {
+          numBoughtAccounts++;
         }
       }
-      setSentEmails(sentEmails - ACCOUNT_COST);
-      if (numBoughtFolders === 0) {
+      // check if already bought every account
+      if (numBoughtAccounts !== NUM_ACCOUNTS) {
+        setSentEmails(sentEmails - ACCOUNT_COST);
+        // if no accounts have been bought, start the timer
+      }
+      if (numBoughtAccounts === 0) {
         setInterval(updateAccount, 10000);
       }
-      numBoughtAccounts++;
     }
   }
 
@@ -532,7 +524,7 @@ function App() {
     let copyEmailArray = new Array(emails.length);
 
     for (let i = 0; i < emails.length - 1; i++) {
-      copyEmailArray[i] = emails[i];
+      copyEmailArray[i] = emails[i+1];
     }
     copyEmailArray[emails.length-1] = getSingleRandomEmail();
     setEmails(copyEmailArray);
@@ -541,15 +533,13 @@ function App() {
 
 
   let updateFolders = () => {
-    console.log("Updating Folders:\n" +
-        "FolderData length: " + folderData.length);
-    for (let i = 0; i < folderData.length; i++) {
-      let folder = folderData[i];
-
+    console.log("Updating Folders");
+    for (let folder of folderData) {
       console.log("Checking folder: " + folder.name + "\n" +
           "bought status: " + folder.bought);
       if (folder.bought) {
-        incrementFolderScore(folder.name);
+        folder.score++;
+        incrementScore();
       }
     }
   }
