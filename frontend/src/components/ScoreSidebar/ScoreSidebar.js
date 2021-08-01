@@ -14,6 +14,7 @@ import AccountTab from "../AccountTab/AccountTab";
 const ScoreSidebar = (props) => (
     <Box anchor={"left"} open={true} variant={"permanent"}>
         <div className={styles.ScoreSidebar}>
+            <img src={"./images/clickmaillogo.png"} style={{"max-height": "100px"}}/>
             <ListItem button key={'Sent'} className={styles.menuItem}>
                 <ListItemIcon><InboxIcon /></ListItemIcon>
                 <ListItemText primary={'Sent '}  />
