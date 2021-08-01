@@ -7,12 +7,13 @@ import FolderIcon from "@material-ui/icons/Folder";
 const FolderTab = (props) => {
 
     const [score, setScore] = useState(0);
+
     useEffect(() => {
-        const interval = setInterval(() => {
+        setTimeout(() => {
+            console.log(score);
             setScore(score + 1);
         }, 1000);
-        //return () => clearInterval(interval);
-    }, []);
+    }, [score]);
 
     return (
         <div className={styles.FolderTab}>
