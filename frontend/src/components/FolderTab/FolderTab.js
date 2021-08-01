@@ -10,7 +10,6 @@ const FolderTab = (props) => {
 
     useEffect(() => {
         setTimeout(() => {
-            console.log(score);
             setScore(score + 1);
         }, 1000);
     }, [score]);

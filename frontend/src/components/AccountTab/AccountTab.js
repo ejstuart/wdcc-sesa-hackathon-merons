@@ -9,11 +9,10 @@ const AccountTab = (props) => {
 
     const [score, setScore] = useState(0);
     useEffect(() => {
-        const interval = setInterval(() => {
+        setTimeout(() => {
             setScore(score + 1);
-        });
-        return () => clearInterval(interval);
-    }, []);
+        }, 1000);
+    }, [score]);
 
     return (
         <div className={styles.AccountTab}>
