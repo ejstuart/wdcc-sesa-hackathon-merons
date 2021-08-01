@@ -381,31 +381,26 @@ function App() {
 
   let spamFolderData = {
     name: "spam",
-    score: 0,
     bought: false
   };
 
   let uniFolderData = {
     name: "uni",
-    score: 0,
     bought: false
   }
 
   let workFolderData = {
     name: "work",
-    score: 0,
     bought: false
   };
 
   let importantFolderData = {
     name: "important",
-    score: 0,
     bought: false
   };
 
   let familyFolderData = {
     name: "family",
-    score: 0,
     bought: false
   };
 
@@ -529,30 +524,6 @@ function App() {
     }
     copyEmailArray[emails.length-1] = getSingleRandomEmail();
     setEmails(copyEmailArray);
-  }
-
-
-
-  let updateFolders = () => {
-    console.log("Updating Folders");
-    for (let folder of folderData) {
-      console.log("Checking folder: " + folder.name + "\n" +
-          "bought status: " + folder.bought);
-      if (folder.bought) {
-        folder.score++;
-        incrementScore();
-      }
-    }
-  }
-
-  let updateAccount = () => {
-    console.log("Updating Accounts");
-    for (let i = 0; i < accountData.length; i++) {
-      let account = accountData[i];
-      if (account.bought) {
-        incrementAccountScore(account.name);
-      }
-    }
   }
 
 
