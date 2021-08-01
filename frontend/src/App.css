@@ -41,7 +41,7 @@
 .RightBox{
   flex-direction: column;
   display: flex;
-  flex-grow: 4;
+  width: 70%;
 }
 
 .BodyBox{
@@ -51,5 +51,5 @@
 }
 
 .RightBoxItem{
-  flex-basis:50%
+  width: 70%;
 }

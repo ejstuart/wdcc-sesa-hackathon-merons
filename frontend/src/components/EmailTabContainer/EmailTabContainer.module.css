@@ -1,8 +1,12 @@
 .EmailTabContainer {
-    background-color: cornflowerblue;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    width: 30%;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .EmailTab {
