@@ -417,19 +417,16 @@ function App() {
 
   let workAccountData = {
     name: "Work Email",
-    score: 0,
     bought: false
   };
 
   let schoolAccountData = {
     name: "School Account",
-    score: 0,
     bought: false
   };
 
   let spamAccountData = {
     name: "Spam Account",
-    score: 0,
     bought: false
   };
 
@@ -471,21 +468,7 @@ function App() {
       if (numBoughtFolders !== NUM_FOLDERS) {
         setSentEmails(sentEmails - FOLDER_COST);
       }
-      if (numBoughtFolders === 0) {
-        console.log("Starting Folder Update Timer");
-        setInterval(updateFolders, 1000);
-      }
     }
-  }
-
-  let incrementAccountScore = (accountName) => {
-    for (let account of accountData) {
-      if (account.name === accountName) {
-        account.score++;
-      }
-    }
-    console.log("Account Score incremented");
-    incrementScore();
   }
 
   let buyAccount = () => {
@@ -503,10 +486,6 @@ function App() {
       // check if already bought every account
       if (numBoughtAccounts !== NUM_ACCOUNTS) {
         setSentEmails(sentEmails - ACCOUNT_COST);
-        // if no accounts have been bought, start the timer
-      }
-      if (numBoughtAccounts === 0) {
-        setInterval(updateAccount, 10000);
       }
     }
   }
