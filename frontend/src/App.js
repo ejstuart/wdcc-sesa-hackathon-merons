@@ -345,8 +345,10 @@ function App() {
     "ernesto.roth@deer.com",
   ];
 
-  const FOLDER_COST = 10
-  const ACCOUNT_COST = 50
+  const NUM_FOLDERS = 5;
+  const FOLDER_COST = 10;
+  const NUM_ACCOUNTS = 4;
+  const ACCOUNT_COST = 50;
 
   const returnRandomEmails = (numEmails) => {
     let emailArray = new Array(numEmails);
@@ -377,37 +379,37 @@ function App() {
 
   // Folder Data
 
-  const [spamFolderData, setSpamFolderData] = useState({
+  let spamFolderData = {
     name: "spam",
     score: 0,
     bought: false
-  });
+  };
 
-  const [uniFolderData, setUniFolderData] = useState({
+  let uniFolderData = {
     name: "uni",
     score: 0,
     bought: false
-  })
+  }
 
-  const [workFolderData, setWorkFolderData] = useState({
+  let workFolderData = {
     name: "work",
     score: 0,
     bought: false
-  })
+  };
 
-  const [importantFolderData, setImportantFolderData] = useState({
+  let importantFolderData = {
     name: "important",
     score: 0,
     bought: false
-  })
+  };
 
-  const [familyFolderData, setFamilyFolderData] = useState({
+  let familyFolderData = {
     name: "family",
     score: 0,
     bought: false
-  })
+  };
 
-  const folderData = [
+  let folderData = [
    spamFolderData,
    uniFolderData,
    workFolderData,
@@ -415,31 +417,35 @@ function App() {
    familyFolderData
   ]
 
+  let numBoughtFolders = 0;
+
   // Account Data
 
-  const [workAccountData, setWorkAccountData] = useState({
+  let workAccountData = {
     name: "Work Email",
     score: 0,
     bought: false
-  })
+  };
 
-  const [schoolAccountData, setSchoolAccountData] = useState({
+  let schoolAccountData = {
     name: "School Account",
     score: 0,
     bought: false
-  })
+  };
 
-  const [spamAccountData, setSpamAccountData] = useState({
+  let spamAccountData = {
     name: "Spam Account",
     score: 0,
     bought: false
-  })
+  };
 
   let accountData = [
       workAccountData,
       schoolAccountData,
       spamAccountData
     ];
+
+  let numBoughtAccounts = 0;
 
   let reply = () => {
     console.log("Sent Reply")
@@ -449,171 +455,71 @@ function App() {
   }
 
   const [sentEmails, setSentEmails] = useState(0)
-  const incrementScore = () => {
+  let incrementScore = () => {
     setSentEmails(sentEmails+1);
     console.log("Score Increment")
   }
 
   let incrementFolderScore = (folderName) => {
-    switch (folderName) {
-      case workFolderData.name:
-        setWorkFolderData({
-          name: workFolderData.name,
-          score: workFolderData.score + 1,
-          bought: workFolderData.bought
-        })
+    console.log("Folder Increment Start")
+
+    for (let folder in folderData) {
+      if (folder.name === folderName) {
+        folder.score++;
         break;
-      case spamFolderData.name:
-        setSpamFolderData({
-          name: spamFolderData.name,
-          score: spamFolderData.score + 1,
-          bought: spamFolderData.bought
-        });
-        break;
-      case uniFolderData.name:
-        setUniFolderData({
-          name: uniFolderData.name,
-          score: uniFolderData.score + 1,
-          bought: uniFolderData.bought
-        });
-        break;
-      case importantFolderData.name:
-        setImportantFolderData({
-          name: importantFolderData.name,
-          score: importantFolderData.score + 1,
-          bought: importantFolderData.bought
-        });
-        break;
-      case familyFolderData.name:
-        setFamilyFolderData({
-          name: familyFolderData.name,
-          score: familyFolderData.score + 1,
-          bought: familyFolderData.bought
-        });
-        break;
+      }
     }
     incrementScore();
-    console.log("folder increment")
+    console.log("folder increment end")
   }
+
+
 
   let buyFolder = () => {
 
-    if (sentEmails >= FOLDER_COST) {
+    if (sentEmails >= FOLDER_COST && numBoughtFolders < NUM_FOLDERS) {
 
-      let folderName;
-      for (const folder of folderData) { // Doesn't handle purchasing more folders than exist
+      for (let folder of folderData) { // Doesn't handle purchasing more folders than exist
         if (!folder.bought) {
-          folderName = folder.name;
+          folder.bought = true;
+          console.log("Bought Folder: " + folder.name)
           break;
         }
       }
-
-      switch (folderName) {
-        case workFolderData.name:
-          setWorkFolderData({
-            name: workFolderData.name,
-            score: workFolderData.score,
-            bought: true
-          });
-          break;
-        case spamFolderData.name:
-          setSpamFolderData({
-            name: spamFolderData.name,
-            score: spamFolderData.score,
-            bought: true
-          });
-          break;
-        case uniFolderData.name:
-          setUniFolderData({
-            name: uniFolderData.name,
-            score: uniFolderData.score,
-            bought: true
-          });
-          break;
-        case importantFolderData.name:
-          setImportantFolderData({
-            name: importantFolderData.name,
-            score: importantFolderData.score,
-            bought: true
-          });
-          break;
-        case familyFolderData.name:
-          setFamilyFolderData({
-            name: familyFolderData.name,
-            score: familyFolderData.score,
-            bought: true
-          });
-          break;
-      }
-      console.log("Bought Folder: " + folderName)
       setSentEmails(sentEmails - FOLDER_COST);
+
+      if (numBoughtFolders === 0) {
+        console.log("Starting Folder Update Timer");
+        setInterval(updateFolders, 1000);
+      }
+      numBoughtFolders++;
     }
   }
 
   let incrementAccountScore = (accountName) => {
-    switch (accountName) {
-      case workAccountData.name:
-        setWorkAccountData({
-          name: workAccountData.name,
-          score: workAccountData.score + 1,
-          bought: workAccountData.bought
-        });
-        break;
-      case schoolAccountData.name:
-        setSchoolAccountData({
-          name: schoolAccountData.name,
-          score: schoolAccountData.score + 1,
-          bought: schoolAccountData.bought
-        });
-        break;
-      case spamAccountData.name:
-        setSpamAccountData({
-          name: spamAccountData.name,
-          score: spamAccountData.score + 1,
-          bought: spamAccountData.bought
-        });
-        break
+    for (let account of accountData) {
+      if (account.name === accountName) {
+        account.score++;
+      }
     }
     console.log("Account Score incremented");
     incrementScore();
   }
 
   let buyAccount = () => {
-    if (sentEmails >= ACCOUNT_COST) {
-
-      let accountName;
-      for (const account in accountData) { // Doesn't handle purchasing more accounts than exist
-        if (account.bought) {
-          accountName = account.name;
+    if (sentEmails >= ACCOUNT_COST && numBoughtAccounts < NUM_ACCOUNTS) {
+      for (let account of accountData) { // Doesn't handle purchasing more accounts than exist
+        if (!account.bought) {
+          console.log("Bought Account: " + account.name);
+          account.bought = true;
           break;
         }
       }
-
-      switch (accountName) {
-        case workAccountData.name:
-          setWorkAccountData({
-            name: workAccountData.name,
-            score: workAccountData.score,
-            bought: true
-          });
-          break;
-        case schoolAccountData.name:
-          setSchoolAccountData({
-            name: schoolAccountData.name,
-            score: schoolAccountData.score,
-            bought: true
-          });
-          break;
-        case spamAccountData.name:
-          setSpamAccountData({
-            name: spamAccountData.name,
-            score: spamAccountData.score,
-            bought: true
-          });
-          break;
-      }
-      console.log("Bought Account: " + accountName)
       setSentEmails(sentEmails - ACCOUNT_COST);
+      if (numBoughtFolders === 0) {
+        setInterval(updateAccount, 10000);
+      }
+      numBoughtAccounts++;
     }
   }
 
@@ -635,24 +541,28 @@ function App() {
 
 
   let updateFolders = () => {
-    console.log("Updating Folders")
-    for (const folder in folderData) {
+    console.log("Updating Folders:\n" +
+        "FolderData length: " + folderData.length);
+    for (let i = 0; i < folderData.length; i++) {
+      let folder = folderData[i];
+
+      console.log("Checking folder: " + folder.name + "\n" +
+          "bought status: " + folder.bought);
       if (folder.bought) {
         incrementFolderScore(folder.name);
       }
     }
   }
-  setInterval(updateFolders, 10000);
 
   let updateAccount = () => {
     console.log("Updating Accounts");
-    for (const account in accountData) {
+    for (let i = 0; i < accountData.length; i++) {
+      let account = accountData[i];
       if (account.bought) {
         incrementAccountScore(account.name);
       }
     }
   }
-  setInterval(updateAccount, 10000)
 
 
   return (

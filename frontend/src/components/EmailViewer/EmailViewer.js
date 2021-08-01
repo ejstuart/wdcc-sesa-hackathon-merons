@@ -13,16 +13,13 @@ const EmailViewer = (props) => (
           <div className={styles.circle}></div>
 
           <div className={styles.sender_info}>
-              <Typography className={styles.email_text} variant={"h5"}>John Name</Typography>
-              <Typography className={styles.email_text}>Name@jasnkda.com</Typography>
+              <Typography className={styles.email_text} variant={"h5"}>{props.email.senderName}</Typography>
+              <Typography className={styles.email_text}>{props.email.senderEmail}</Typography>
           </div>
       </div>
       <div className={styles.email_body}>
-          <Typography className={styles.email_text} paragraph>Want to MAKE CASH FAST? JUST CLICK THE FOLLOWING LINK:
-                <p></p>
-              <u>HERE CLICK ME</u>
-              <p></p>
-              I made over $10000000000 in just ONE DAY!
+          <Typography className={styles.email_text} paragraph>
+              {props.email.emailBody}
           </Typography >
 
           <TextField variant={"outlined"} fullWidth multiline rows={3} disabled>
