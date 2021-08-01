@@ -37,7 +37,7 @@
 .email_sender_text{
     text-align: left;
     white-space: pre-line;
-    margin:0px;
+    margin:0;
     font-style: italic;
 }
 
@@ -45,7 +45,7 @@
     text-align: left;
     white-space: pre-line;
     overflow-y: scroll;
-    height: 200px;
+    height: 100px;
 }
 
 .text_field{

@@ -1,6 +1,7 @@
 .SettingsTab {
-    background-color: darkkhaki;
     flex-grow: 1;
+    border-left: 1px solid dimgray;
+    padding: 3vw;
 }
 
 .FlexContainer {
@@ -10,6 +11,13 @@
     padding-left: 5%;
 }
 
-.FlexItem {
-    width: 40%
+.flexRow{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 1vw;
+}
+
+h1{
+    margin-top: 12px;
 }
