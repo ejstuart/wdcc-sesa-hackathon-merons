@@ -14,6 +14,7 @@ import AccountTab from "../AccountTab/AccountTab";
 const ScoreSidebar = (props) => (
     <Box anchor={"left"} open={true} variant={"permanent"}>
         <div className={styles.ScoreSidebar}>
+            <img src={"./images/clickmaillogo.png"} style={{"max-height": "100px"}}/>
             <ListItem button key={'Sent'} className={styles.menuItem}>
                 <ListItemIcon><InboxIcon /></ListItemIcon>
                 <ListItemText primary={'Sent '}  />
@@ -30,6 +31,10 @@ const ScoreSidebar = (props) => (
                 )
             })}
             <ListItem button key={'Folders'} className={styles.menuItem}>
+                <ListItemIcon><FolderIcon/></ListItemIcon>
+                <ListItemText primary={'Folders '} />
+            </ListItem>
+            <ListItem button key={'Folders'} className={styles.menuItem}>
                 <FolderTab name={props.folders[0].name} bought={props.folders[0].bought}/>
             </ListItem>
             <ListItem button key={'Folders'} className={styles.menuItem}>
@@ -45,6 +50,10 @@ const ScoreSidebar = (props) => (
                 <FolderTab name={props.folders[4].name} bought={props.folders[4].bought}/>
             </ListItem>
 
+            <ListItem button key={'Accounts'} className={styles.menuItem}>
+                <ListItemIcon><AccountCircleIcon/></ListItemIcon>
+                <ListItemText primary={'Accounts '} />
+            </ListItem>
             <ListItem button key={'Accounts'} className={styles.menuItem}>
                 <AccountTab name={props.accounts[0].name} bought={props.accounts[0].bought}/>
             </ListItem>
