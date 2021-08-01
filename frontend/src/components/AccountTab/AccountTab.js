@@ -10,9 +10,7 @@ const AccountTab = (props) => {
     const [score, setScore] = useState(0);
     useEffect(() => {
         const interval = setInterval(() => {
-            if (props.bought) {
-                setScore(score + 1);
-            }
+            setScore(score + 1);
         });
         return () => clearInterval(interval);
     }, []);

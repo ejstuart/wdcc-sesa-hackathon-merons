@@ -11,7 +11,7 @@ const FolderTab = (props) => {
         const interval = setInterval(() => {
             setScore(score + 1);
         }, 1000);
-        return () => clearInterval(interval);
+        //return () => clearInterval(interval);
     }, []);
 
     return (
