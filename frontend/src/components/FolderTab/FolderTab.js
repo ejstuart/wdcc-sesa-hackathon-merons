@@ -25,7 +25,7 @@ const FolderTab = (props) => {
     );
 };
 
-FolderTab.propTypes = {name: PropTypes.string, bought: PropTypes.bool};
+FolderTab.propTypes = {name: PropTypes.string};
 
 FolderTab.defaultProps = {};
 

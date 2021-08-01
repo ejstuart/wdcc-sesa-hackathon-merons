@@ -25,44 +25,12 @@ const ScoreSidebar = (props) => (
                 <ListItemIcon><MailIcon/></ListItemIcon>
                 <ListItemText primary={'Starred '} />
             </ListItem>
+
             {props.folderList.map((item) => {
                 return (
                     <FolderTab name={item}></FolderTab>
                 )
             })}
-            <ListItem button key={'Folders'} className={styles.menuItem}>
-                <ListItemIcon><FolderIcon/></ListItemIcon>
-                <ListItemText primary={'Folders '} />
-            </ListItem>
-            <ListItem button key={'Folders'} className={styles.menuItem}>
-                <FolderTab name={props.folders[0].name} bought={props.folders[0].bought}/>
-            </ListItem>
-            <ListItem button key={'Folders'} className={styles.menuItem}>
-                <FolderTab name={props.folders[1].name} bought={props.folders[1].bought}/>
-            </ListItem>
-            <ListItem button key={'Folders'} className={styles.menuItem}>
-                <FolderTab name={props.folders[2].name} bought={props.folders[2].bought}/>
-            </ListItem>
-            <ListItem button key={'Folders'} className={styles.menuItem}>
-                <FolderTab name={props.folders[3].name} bought={props.folders[3].bought}/>
-            </ListItem>
-            <ListItem button key={'Folders'} className={styles.menuItem}>
-                <FolderTab name={props.folders[4].name} bought={props.folders[4].bought}/>
-            </ListItem>
-
-            <ListItem button key={'Accounts'} className={styles.menuItem}>
-                <ListItemIcon><AccountCircleIcon/></ListItemIcon>
-                <ListItemText primary={'Accounts '} />
-            </ListItem>
-            <ListItem button key={'Accounts'} className={styles.menuItem}>
-                <AccountTab name={props.accounts[0].name} bought={props.accounts[0].bought}/>
-            </ListItem>
-            <ListItem button key={'Accounts'} className={styles.menuItem}>
-                <AccountTab name={props.accounts[1].name} bought={props.accounts[1].bought}/>
-            </ListItem>
-            <ListItem button key={'Accounts'} className={styles.menuItem}>
-                <AccountTab name={props.accounts[2].name} bought={props.accounts[2].bought}/>
-            </ListItem>
 
         </div>
     </Box>
