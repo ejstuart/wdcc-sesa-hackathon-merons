@@ -426,7 +426,7 @@ function App() {
   let buyFolder = () => {
     if (sentEmails >= FOLDER_COST && folderList.length < FOLDER_NAMES.length) {
       let newFolderName = FOLDER_NAMES[folderList.length];
-      let newFolderList = Array.copy(folderList);
+      let newFolderList = [...folderList];
       newFolderList.push(newFolderName);
       editFolderList(newFolderList);
     }
